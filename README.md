@@ -1,37 +1,18 @@
-# RecapTime.dev base repository template
+# Authentik Recipes + Docs for Community SSO
 
-This template repository is designed to be a starting point for new projects at Recap Time Squad,
-with a focus on batteries-included configuration such as GitHub issue contact links, labels-as-code
-on GitHub, and issue templates/forms across both GitHub and GitLab, and a consistent structure for
-community health files such as CODE_OF_CONDUCT, CONTRIBUTING and SECURITY.
+## Receipes
 
-## How to use this template
+* Exports of different Authentik flows from our instance can be viewed at
+the [`flows` folder](./flows).
 
-1. On GitHub, click the "Use this template" button to create a new repository.
-  - Alternatively, you can clone this repository and push it to a new repository for GitLab and other code forges.
-2. Replace the `README.md` contents with your project description, badges, and usage instructions.
-3. Update the `LICENSE` file to match your project's license. Same with `LICENSE-DOCS` for documentation.
-4. Review and update the `.github` and `.gitlab` directories for description templates (issue forms in GitHub), workflows/CI setup, and labels.
+## Documentation
 
----
-
-# $PROJECT_NAME
-
-Project description here, plus any badges + banner
-
-## Usage
-
-Basic usage docs here, then link to docs
-
-```bash
-# install + usage
-```
-
-## Resources
-
-Docs, contributing guidelines, etc.
+User-facing and admin docs are kept at the `docs` folder and deployed via
+[GitBook] at <https://gitbook.recaptime.dev/community-sso>.
 
 ## License
 
-MPL-2.0/AGPL-3.0/other OSI-approved license in SPDX-License-Identifier format
-(replace LICENSE contents to match if needed)
+* Code and configs: MPL-2.0
+* Docs: CC BY-SA 4.0
+
+[GitBook]: https://www.gitbook.com/
