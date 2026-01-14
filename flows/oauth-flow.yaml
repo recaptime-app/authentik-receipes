@@ -1,0 +1,73 @@
+context: {}
+entries:
+- attrs:
+    authentication: require_unauthenticated
+    denied_action: message_continue
+    designation: authentication
+    layout: stacked
+    name: OAuth flow
+    policy_engine_mode: any
+    title: Signing into Recap Time Squad Community SSO via social auth...
+  conditions: []
+  identifiers:
+    pk: db9f24e1-76e2-4a9f-9178-9b7d907b2c54
+    slug: oauth-flow
+  model: authentik_flows.flow
+  permissions: []
+  state: present
+- attrs:
+    expression: '# This policy ensures that this flow can only be used when the user
+
+      # is in a SSO Flow (meaning they come from an external IdP)
+
+      return ak_is_sso_flow'
+    name: default-source-authentication-if-sso
+  conditions: []
+  identifiers:
+    pk: 914b65d1-e789-4eb1-a43f-c352702bd025
+  model: authentik_policies_expression.expressionpolicy
+  permissions: []
+  state: present
+- attrs:
+    geoip_binding: no_binding
+    network_binding: no_binding
+    remember_device: days=30
+    remember_me_offset: seconds=0
+    session_duration: seconds=0
+  conditions: []
+  identifiers:
+    name: default-source-authentication-login
+    pk: bece4a1d-51c4-4024-bfaa-f1039ca80a5f
+  model: authentik_stages_user_login.userloginstage
+  permissions: []
+  state: present
+- attrs:
+    invalid_response_action: retry
+    policy_engine_mode: any
+    re_evaluate_policies: true
+  conditions: []
+  identifiers:
+    order: 0
+    pk: 95c80e38-5789-47f6-b354-ed53eb13f707
+    stage: bece4a1d-51c4-4024-bfaa-f1039ca80a5f
+    target: db9f24e1-76e2-4a9f-9178-9b7d907b2c54
+  model: authentik_flows.flowstagebinding
+  permissions: []
+  state: present
+- attrs:
+    enabled: true
+    timeout: 30
+  conditions: []
+  identifiers:
+    order: 0
+    pk: 3dc1f0ec-1801-4147-a166-b55f74360dd8
+    policy: 914b65d1-e789-4eb1-a43f-c352702bd025
+    target: db9f24e1-76e2-4a9f-9178-9b7d907b2c54
+  model: authentik_policies.policybinding
+  permissions: []
+  state: present
+metadata:
+  labels:
+    blueprints.goauthentik.io/generated: 'true'
+  name: authentik Export - 2026-01-14 06:22:14.501129+00:00
+version: 1
