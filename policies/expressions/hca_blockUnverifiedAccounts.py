@@ -21,8 +21,8 @@ match verified_state:
     ak_message("Complete identity verification first at https://auth.hackclub.com/verifications/new to continue using Hack Club Auth as your signin method.")
     return False
   case "pending":
-    ak_message("Your identity verification with Hack Club is currently pending. Try again once you are verified.")
+    ak_message("Your identity verification with Hack Club is currently pending. Try again once you are verified or see https://auth.hackclub.com/docs/contact on how to contact Hack Club regarding identity verification.")
     return False
   case "ineligible":
-    ak_message("Looks like either you are ineligible to use Hack Club services (e.g. adult trying to join YSWS programs + events, reported fraud case, misconduct, etc.) or your identity documents are rejected. Try again at https://auth.hackclub.com/verifications/new or contact identity@hackclub.com for support.")
+    ak_message("Looks like either you are ineligible to use Hack Club services (e.g. adult trying to join YSWS programs + events, reported fraud case, misconduct, etc.) or your identity documents are rejected. Try again at https://auth.hackclub.com/verifications/new or see https://auth.hackclub.com/docs/contact on how to contact Hack Club regarding identity verification.")
     return False
